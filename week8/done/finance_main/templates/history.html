@@ -1,0 +1,43 @@
+<!-- ADDED -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/">
+      <div class="table-container">
+        <table class="table table-striped">
+
+          <thead>
+            <tr>
+              <th class="border-top-0 symbol-column">Symbol</th>
+              <th class="border-top-0 shares-column">Shares</th>
+              <th class="border-top-0 price-column">Price</th>
+              <th class="border-top-0 transacted-column">Transacted</th>
+            </tr>
+          </thead>
+
+
+          {% if history_info %}
+            <tbody>
+              {% for history in history_info %}
+                <tr>
+                  <td class="symbol-column">{{ history["symbol"] }}</td>
+                  <td class="shares-column">{{ history["shares"] }}</td>
+                  <td class="price-column">{{ usd(history["price"]) }}</td>
+                  <td class="transacted-column">{{ history["data_time"] }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          {% endif %}
+
+
+
+        </table>
+
+      </div>
+
+    </form>
+{% endblock %}

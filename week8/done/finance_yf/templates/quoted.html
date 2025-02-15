@@ -1,0 +1,9 @@
+<!-- ADDED -->
+{% extends "layout.html" %}
+
+{% block main %}
+    <form action="/quote" method="post">
+      <p>A share of {{ stock_info["name"] }}
+        Common Stock ({{ stock_info["symbol"] }}) costs ${{ stock_info["price"] }}</p>
+    </form>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!-- ADDED -->
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Sheet</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+      <div class="table">
+
+        <table id="data_table" class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>House</th>
+              <th>Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in table %}
+            <tr>
+              <td>{{ row[0] }}</td>
+              <td>{{ row[1] }}</td>
+              <td>{{ row[2] }}</td>
+            </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+
+    </form>
+
+    <script>
+      $(document).ready(function() {
+        $("#data_table").DataTable({
+          "ordering": true,
+          "paging": false,
+          "searching": false
+        });
+      });
+
+    </script>
+
+{% endblock %}

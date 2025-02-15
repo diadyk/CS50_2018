@@ -1,0 +1,83 @@
+/* ADDED */
+
+/* Fill viewport, hide scroll bar */
+html, body
+{
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Ensure content is below navbar */
+div.container-fluid
+{
+    padding-top: 56px;
+}
+
+/* Fill viewport */
+div.container-fluid, div.row, div.col, div.jumbotron
+{
+    height: 100%;
+}
+
+/* Remove padding within column */
+div.col
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Add padding around form */
+form
+{
+    padding: 15px;
+}
+
+/* Wrap and scroll preformatted text */
+pre
+{
+    height: 100%;
+    overflow: auto;
+    padding: 15px;
+    white-space: pre-wrap;
+}
+
+/* Highlight spans */
+span
+{
+    background-color: #ff0;
+}
+
+#file-upload-button
+{
+    width: 94.38px;
+    height: 30px;
+}
+
+.file
+{
+    margin-bottom: 16px;
+}
+
+.form-check
+{
+    margin-bottom: 0px;
+}
+
+.form-check-input
+{
+    margin-left: 0px;
+    margin-top: 4.8px;
+}
+
+.form-control-sm
+{
+    padding: 4px 8px 4px 8px;
+    width: 177px;
+    height: 31px;
+}
+.btn-primary
+{
+    height: 38px;
+    padding: 6px 12px 6px 12px;
+    margin-top:16px;
+}

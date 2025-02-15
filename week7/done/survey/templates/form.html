@@ -1,0 +1,73 @@
+<!-- EDITED -->
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form id="form" action="/form" method="post">
+
+      <div class="name_bar">
+        <input name="name" type="name" id="name" class="form-control" placeholder="Name" autofocus>
+      </div>
+
+
+      <div class="select_house">
+        <select class="form-control" name="house" id="house">
+          <option disabled selected value="House">House</option>
+          <option value="Gryffindor">Gryffindor</option>
+          <option value="Hufflepuff">Hufflepuff</option>
+          <option value="Ravenclaw">Ravenclaw</option>
+          <option value="Slytherin">Slytherin</option>
+        </select>
+      </div>
+
+
+      <div class="form-check">
+        <input class="form-check-input" name="position" id="position" type="radio" value="Beater">
+          <label class="form-check-label">Beater</label><br>
+        <input class="form-check-input" name="position" id="position" type="radio" value="Chaser">
+          <label class="form-check-label">Chaser</label><br>
+        <input class="form-check-input" name="position" id="position" type="radio" value="Keeper">
+          <label class="form-check-label">Keeper</label><br>
+        <input class="form-check-input" name="position" id="position" type="radio" value="Seeker">
+          <label class="form-check-label">Seeker</label><br>
+      </div>
+
+
+      <div class="button_submit">
+        <button id="submit" class="btn btn-primary" type="submit">Submit</button>
+      </div>
+
+    </form>
+
+    <script>
+      document.getElementById("form").addEventListener("submit", function (event) {
+        let name = document.getElementById("name").value;
+        let house = document.getElementById("house").value;
+        let position = document.querySelector("input[name='position']:checked");
+
+
+        if (!name) {
+          alert('Please enter your name.');
+          event.preventDefault();
+          return;
+        }
+
+        if (!house) {
+          alert('Please select a house.');
+          event.preventDefault();
+          return;
+        }
+
+        if (!position) {
+          alert('Please select a position.');
+          event.preventDefault();
+          return;
+        }
+      });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<!-- ADDED -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+
+{% block main %}
+    <form action="/">
+      <div class="table-container">
+        <table class="table table-striped">
+
+          <thead>
+            <tr>
+              <th class="border-top-0 symbol-column">Symbol</th>
+              <th class="border-top-0 shares-column">Shares</th>
+              <th class="border-top-0 price-column">Price</th>
+              <th class="border-top-0 total-column">TOTAL</th>
+            </tr>
+          </thead>
+
+          {% if stock_info %}
+            <tbody>
+              {% for stock in stock_info %}
+                <tr>
+                  <td class="symbol-column">{{ stock["symbol"] }}</td>
+                  <td class="shares-column">{{ stock["shares"] }}</td>
+                  <td class="price-column">{{ usd(lookup(stock["symbol"])["price"]) }}</td>
+                  <td class="total-column">{{ usd(lookup(stock["symbol"])["price"] * stock["shares"]) }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          {% endif %}
+
+          <tfoot>
+            <tr>
+              <th class="border-0 text-end" colspan="3">Cash</td>
+              <td class="border-0 text-end">{{ usd(cash) }}</td>
+            </tr>
+            <tr>
+              <th class="border-0 text-end" colspan="3">TOTAL</td>
+              <td class="border-0 text-end">
+                {{ usd(total_cash) }}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+
+      </div>
+
+    </form>
+{% endblock %}
